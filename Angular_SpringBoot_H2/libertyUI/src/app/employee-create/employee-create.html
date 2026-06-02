@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <mat-card appearance="outlined" class="shadow-sm">
+    <mat-card-content>
+      <!-- Back Button -->
+      <button mat-button color="primary" (click)="goBack()">
+        <mat-icon>chevron_left</mat-icon> Go Back
+      </button>
+
+      <mat-card-header>
+        <mat-card-title>Add New Employee</mat-card-title>
+        <mat-card-subtitle *ngIf="envService.appEnvTitle()">
+          <h3 style="color: red;">{{envService.appEnvTitle()}}</h3>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()" class="employee-form">
+        
+        <!-- Name Field -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Ex. John Doe" required>
+          <mat-error *ngIf="employeeForm.get('name')?.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Email Field -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" required>
+          <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" required>
+        </mat-form-field>
+
+        <!-- Salary Field -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Salary</mat-label>
+          <input type="number" matInput formControlName="salary" required>
+          <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+
+        <!-- File Upload (Native input styled with Material) -->
+        <div class="file-upload-wrapper">
+          <label for="profileImage">Profile Image</label>
+          <input type="file" id="profileImage" (change)="onFileSelect($event)" />
+        </div>
+        <br/>
+
+        <!-- Submit Button -->
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="employeeForm.invalid">
+            Add Employee
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

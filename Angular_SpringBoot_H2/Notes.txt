@@ -1,0 +1,103 @@
+1.JDK21
+
+2.springboot4
+
+Spring Initializr
+ to generate a Maven project with Spring Boot 4.0.
+Add Dependencies:
+Spring Web: For RESTful APIs.
+Spring Data JPA: For database operations.
+H2 db
+lombok
+devtool
+
+Set jdk21 to entire project
+
+3.DB-H2
+Configure H2: In src/main/resources/application.properties, add
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.h2.console.enabled=true
+spring.jpa.hibernate.ddl-auto=update
+
+4.build:maven
+
+5.IDE-IntellijIdea, vs code 1.0.9
+
+6.Node.js 24 version required
+
+7.angular 21 and typescript 5.9
+1 open vs code and open terminal ->under C:\Users\10647012>npm i -g @angular/cli
+ng
+node --version
+where node
+3.ng version
+4.ng new LibertyUI
+if ng command will not work then C:\Users\10647012\AppData\Roaming\npm -copy this path
+paste in environment var under path
+
+Flow
+Client->controller->service->repository->entity(amp to DB)/dto(not map to db)
+when client send the req to server->controller handle the request of clinet ->service with the help the of repository with the help of service(business login) uses repository function->entity(create table/db directly interact with db
+DTO- to prevind password to explose
+dto -only required field abstract dto expose only required things
+
+1.applicatin.property 2.entity 3.DTO 4.controller 5.repositoty
+
+Run H2.database
+http://localhost:9177/h2-liberty/ -put some rec
+
+INSERT INTO employee_entity(eid, active,create_at,email,name,password,profile_image,salary) 
+VALUES ('101','true','2026-06-12 12:00:00',  'john@example.com','John Doe','abcd','abc.img','200.36');
+
+INSERT INTO employee_entity(eid, active,create_at,email,name,password,profile_image,salary) 
+VALUES ('102','false','2026-05-14 11:02:00',  'manoj@gmail.com','manoj kumar','man123','manimg.img','2564.36');
+
+package.json , angular.sjon,tsconfig.json
+C:\Angular_SpringBoot_H2\libertyUI\package.json
+main.ts ->starting point of application->
+index.html -> here is main page for single PA
+
+70486180186
+---------------------angular 20-----------------
+Core Features & Stabilized APIs
+1.Stable Signals API: 
+Reactive primitives like signal(), effect(), linkedSignal(), and toSignal() 
+are now fully production-ready. This allows for a more intuitive, 
+dependency-tracked way to manage state without the boilerplate of RxJS.
+
+2.Stable Incremental Hydration: This advanced SSR feature allows Angular to hydrate parts of the page selectively (e.g., on interaction or when they enter the viewport), significantly improving Time to Interactive (TTI) and SEO.
+
+3.Zoneless Change Detection: Now in developer preview (opt-in via provideZonelessChangeDetection()), this feature removes the dependency on zone.js, leading to smaller bundle sizes, faster rendering, and clearer debugging stack traces.
+
+4.Enhanced Dynamic Component Creation: The createComponent API is stabilized, allowing for type-safe, declarative component instantiation at runtime without needing ViewContainerRef. 
+
+C:\Program Files\Eclipse Adoptium\jdk-21.0.10.7-hotspot\bin
+set path="C:\Program Files\Eclipse Adoptium\jdk-21.0.10.7-hotspot";%path%
+
+
+Angular -> under app ->create model,service(act as a bridge to fetch data from api) folder
+1.Model->employee.model.ts
+2.service->employee.service.ts //write function to acall api
+3.component
+C:\Angular_SpringBoot_H2\libertyUI> ng g c employee-create
+1.employee-list.ts
+2.employee-list.html
+3.app.routes.ts (for routing)
+4.app.html - delete all code except tag to apply router
+5.provideHttpClient(), add this in app.config.ts
+C:\Angular_SpringBoot_H2\libertyUI> ng g c employee-list
+C:\Angular_SpringBoot_H2\libertyUI> ng g c employee-update
+user-create , css,html,ts
+user-list
+user-update
+use bootstrap5 cdn for bootstrap style
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+copy css and paste link in index.html
+4.employee-list.ts
+Multienvrironment setup
+ng generate environments
+update in angular.json
+
+Build for UAT: ng build --configuration sit uat/
+Run Locally for UAT: ng serve --configuration sit uat/
+Build for Production: ng build --configuration

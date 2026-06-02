@@ -1,0 +1,51 @@
+angular material
+10829166
+PostgreSQL, 
+ JWT-based authentication and role-based authorization would be highly beneficial. Additionally, exploring authentication frameworks like Auth0, along with logging mechanisms in Spring Boot and caching techniques using Redis, will help enhance your overall backend capabilities.
+
+
+1. JWT-based authentication 
+2. role-based authorization in spring boot
+3. caching techniques using Redis in spring boot
+4. spring boot Auth0
+-----------------------
+
+1. multi-environment configurations, -done 
+2. HTTP interceptors, --In progress(need to setup in backend)
+ng generate interceptor token 
+update interceptor in app.config.ts
+3. and modern UI frameworks such as Material UI (our project uses a similar design system, Fluid).
+ng add @angular/material  --done
+
+<section>
+  <div class="example-label">Elevated</div>
+  <div class="example-button-row">
+    <button matButton="elevated">Basic</button>
+    <button matButton="elevated" disabled>Disabled</button>
+    <a matButton="elevated" href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+import { HttpInterceptorFn } from '@angular/common/http';
+
+export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
+  const token=localStorage.getItem("angularTokenInterceptor");
+  //attach authorization header to each api
+  const newReq= req.clone({ //1.clone the request
+    setHeaders:{
+      Authorization:`Beare ${token}`,      
+      'Content-Type': 'application/json'
+    }
+  });
+  return next(newReq);
+}
+ 474e3979-096c-4a8d-972c-33aa92ad6db1------
+ ------------------------------------------------14 may 26--------------
+ 1.liberty insurance setup
+ 1.https://aks.ms/mfasetup
+ email:manoj.kumar08@libertymutual.com
+ pw:T@6vMV$M$$@#PAqf
+ MunnuBhubu7474@12
+ 
+ setting->password &account
+

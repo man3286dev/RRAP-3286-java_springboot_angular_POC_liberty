@@ -1,0 +1,8 @@
+{
+  "/api/emp": {
+    "target": "http://localhost:9177/api/emp",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
